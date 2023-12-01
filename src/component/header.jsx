@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate()
   const location = useLocation();
   const route = location.pathname.split("/")[1];
   const opneMenu = () => {
@@ -20,7 +21,7 @@ const Header = () => {
           className="fa-solid fa-bars text-3xl sm:!hidden"
           onClick={opneMenu}
         ></i>
-        <img src="/src/assets/logo_svg.svg" className="w-32 h-8" alt="" />
+        <img onClick={() => navigate("/")} src="/src/assets/logo_svg.svg" className="w-32 h-8 cursor-pointer" alt="" />
         <ul className="hidden md:flex text-lg font-medium font-darker space-x-8 lg:space-x-16">
           <li>
             <Link
